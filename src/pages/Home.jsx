@@ -36,7 +36,7 @@ const Home = () => {
               className="text-lg px-8"
               asChild
             >
-              <a href="/contact">
+              <a href="src/pages/Contact.jsx">
                 Get Started <ArrowRight className="ml-2" />
               </a>
             </Button>
