@@ -3,7 +3,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
+<Button size="lg" className="text-lg px-8" asChild>
+  <Link to="/contact">
+    Get Started <ArrowRight className="ml-2" />
+  </Link>
+</Button>
+
 import mainimage from "../assets/image1.png"
+
 
 const Home = () => {
   return (
@@ -31,15 +39,11 @@ const Home = () => {
             <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
             Let’s shape a smarter, cleaner energy future together.
             </p>
-            <Button
-              size="lg"
-              className="text-lg px-8"
-              asChild
-            >
-              <a href="src/pages/Contact.jsx">
-                Get Started <ArrowRight className="ml-2" />
-              </a>
-            </Button>
+            <Button size="lg" className="text-lg px-8" asChild>
+  <Link to="/contact">
+    Get Started <ArrowRight className="ml-2" />
+  </Link>
+</Button>
           </motion.div>
         </div>
       </section>
