@@ -1,6 +1,6 @@
 
 import React from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +15,8 @@ import MediumTermPPA from "./pages/MediumTermPPA";
 import ShortTermPPA from "./pages/ShortTermPPA";
 import RPOObligations from "./pages/RPOObligations";
 
+
+
 function App() {
   return (
     <Router>
@@ -25,7 +27,6 @@ function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
-              <Route path="/services" element={<Services />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="/services/full" element={<ServiceFull />} />
               <Route path="/services" element={<Services />} />
