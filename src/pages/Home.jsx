@@ -4,12 +4,6 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-<Button size="lg" className="text-lg px-8" asChild>
-  <Link to="/contact">
-    Get Started <ArrowRight className="ml-2" />
-  </Link>
-</Button>
-
 import mainimage from "../assets/image1.png"
 
 
