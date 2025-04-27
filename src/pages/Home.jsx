@@ -1,11 +1,9 @@
-
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import mainimage from "../assets/image1.png"
-
+import mainimage from "../assets/image1.png";
 
 const Home = () => {
   return (
@@ -13,10 +11,11 @@ const Home = () => {
       {/* Hero Section */}
       <section className="relative h-[80vh] flex items-center">
         <div className="absolute inset-0 z-0">
-        <img 
+          <img
             className="w-full h-full object-cover"
             alt="Modern office space with natural light"
-           src={mainimage} />
+            src={mainimage}
+          />
           <div className="absolute inset-0 bg-black/50" />
         </div>
 
@@ -31,13 +30,13 @@ const Home = () => {
               Welcome to EEXORIGIN
             </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
-            Let’s shape a smarter, cleaner energy future together.
+              Let’s shape a smarter, cleaner energy future together.
             </p>
             <Button size="lg" className="text-lg px-8" asChild>
-  <Link to="/contact">
-    Get Started <ArrowRight className="ml-2" />
-  </Link>
-</Button>
+              <Link to="/Contact">
+                Get Starte <ArrowRight className="ml-2" />
+              </Link>
+            </Button>
           </motion.div>
         </div>
       </section>
@@ -56,18 +55,19 @@ const Home = () => {
               Why Choose Us?
             </h2>
             <p className="text-gray-700 max-w-3xl mx-auto">
-            At EEX ORIGIN, We integrate cutting-edge technology with deep energy market knowledge to provide a secure, scalable, and sustainable platform for trading electricity and renewables. Our comprehensive support covers the entire lifecycle of PPAs, PPQs, and RPO tracking.
+              At EEX ORIGIN, We integrate cutting-edge technology with deep
+              energy market knowledge to provide a secure, scalable, and
+              sustainable platform for trading electricity and renewables. Our
+              comprehensive support covers the entire lifecycle of PPAs, PPQs,
+              and RPO tracking.
             </p>
-            <br/>
-            
-            
+            <br />
           </motion.div>
-          <center><h2 className="text-3xl md:text-4xl font-bold mb-4">
-              Core Values
-            </h2></center>
-            <br/>
+          <center>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Core Values</h2>
+          </center>
+          <br />
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          
             {features.map((feature, index) => (
               <motion.div
                 key={index}
@@ -120,28 +120,44 @@ const Home = () => {
 };
 
 const features = [
-
   {
-    icon: <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">⚡</div>,
+    icon: (
+      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+        ⚡
+      </div>
+    ),
     title: "Action ",
-    description: "our action propelling us forward and enabling us to create an impactful future.",
+    description:
+      "our action propelling us forward and enabling us to create an impactful future.",
   },
   {
-    icon: <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">💡</div>,
+    icon: (
+      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+        💡
+      </div>
+    ),
     title: "Innovation",
     description: "We stay ahead of the curve with cutting-edge solutions.",
   },
   {
-    icon: <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">🧠</div>,
+    icon: (
+      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+        🧠
+      </div>
+    ),
     title: "Mastery",
-    description: "Our team brings years of industry experience to every project.",
+    description:
+      "Our team brings years of industry experience to every project.",
   },
   {
-    icon: <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">🤝</div>,
+    icon: (
+      <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center">
+        🤝
+      </div>
+    ),
     title: "Customer ",
     description: "24/7 dedicated support to ensure your success.",
   },
-  
 ];
 
 export default Home;
