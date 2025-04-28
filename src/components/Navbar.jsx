@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -20,20 +20,22 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-2">
         <div className="flex justify-between h-16 items-center">
           {/* Logo and Brand Name */}
-          <motion.div
-            whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-0"
-          >
-            <img
-              src={logo}
-              alt="Logo"
-              className="flex items-center h-16 w-20 object-contain"
-            />
+          <Link to="/">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              className="flex items-center space-x-0"
+            >
+              <img
+                src={logo}
+                alt="Logo"
+                className="flex items-center h-16 w-20 object-contain"
+              />
 
-            <span className="text-2xl font-bold text-primary">
-              ENERGY EXCHANGE ORIGIN
-            </span>
-          </motion.div>
+              <span className="text-2xl font-bold text-primary">
+                ENERGY EXCHANGE ORIGIN
+              </span>
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-4">
