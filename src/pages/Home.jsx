@@ -26,15 +26,13 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-6xl md:text-5xl font-bold mb-6">
-              Welcome to EEXORIGIN
-            </h1>
+            <h1 className="text-6xl md:text-5xl font-bold mb-6">Welcome to</h1>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Let’s shape a smarter, cleaner energy future together.
             </p>
             <Button size="lg" className="text-lg px-8" asChild>
               <Link to="/Contact">
-                Get Starte <ArrowRight className="ml-2" />
+                Get Started <ArrowRight className="ml-2" />
               </Link>
             </Button>
           </motion.div>
