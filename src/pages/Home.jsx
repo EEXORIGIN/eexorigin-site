@@ -26,7 +26,9 @@ const Home = () => {
             transition={{ duration: 0.8 }}
             className="text-center text-white"
           >
-            <h1 className="text-6xl md:text-5xl font-bold mb-6">Welcome to</h1>
+            <h1 className="text-6xl md:text-5xl font-bold mb-6">
+              Welcome to EEXORIGIN
+            </h1>
             <p className="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">
               Let’s shape a smarter, cleaner energy future together.
             </p>
