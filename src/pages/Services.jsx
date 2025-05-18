@@ -2,9 +2,10 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import testImage from "../assets/long.png";
-import image1 from "../assets/image1.png";
-import image2 from "../assets/image2.png";
+import testImage from "../assets/long new.png";
+import image1 from "../assets/medium.png";
+import image2 from "../assets/image5.jpeg";
+import image3 from "../assets/RPO.png";
 
 const Services = () => {
   return (
@@ -39,12 +40,12 @@ const Services = () => {
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
               >
                 <img
-                  className="w-full h-48 object-cover"
+                  className="w-full h-80 object-cover"
                   alt={service.title}
                   src={service.image}
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">
+                <div className="p-3">
+                  <h3 className="text-xl font-semibold mb-1">
                     {service.title}
                   </h3>
                   <p className="text-gray-600 mb-6">{service.description}</p>
@@ -90,7 +91,7 @@ const services = [
     title: "RPO OBLIGATIONS",
     description:
       "Assistance in meeting Renewable Purchase Obligation compliance.",
-    image: image2,
+    image: image3,
     link: "/services/rpo", // Link to RPO Obligation page
   },
 ];
