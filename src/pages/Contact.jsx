@@ -6,7 +6,6 @@ import { MapPin, Phone, Mail } from "lucide-react";
 import { db } from "../firebaseConfig"; // Import Firebase config
 import { addDoc, collection } from "firebase/firestore"; // Import Firebase functions
 import { ClipLoader } from "react-spinners"; // Import loading spinner
-import Confetti from "react-confetti"; // Add confetti effect
 
 const Contact = () => {
   const { toast } = useToast();
@@ -162,24 +161,23 @@ const Contact = () => {
               className="bg-white rounded-lg shadow-lg p-8"
             >
               <center>
-                <h1 className="text-3xl font-bold mb-6">Send Your Query</h1>
+                {!isSubmitted && (
+                  <h1 className="text-3xl font-bold mb-6">Send Your Query</h1>
+                )}
               </center>
 
               {isSubmitted ? (
-                // Display Confetti when form is submitted successfully
-                <div className="text-center">
-                  <Confetti
-                    width={windowWidth}
-                    height={windowHeight}
-                    numberOfPieces={200}
-                  />
+                <div className="text-center space-y-6">
                   <h2 className="text-3xl font-semibold text-green-600">
                     Thank You! Your message has been sent.
                   </h2>
-                  <p className="text-xl text-gray-600 mt-4">
+                  <p className="text-xl text-gray-600">
                     We appreciate your query. Our team will get back to you
                     shortly.
                   </p>
+                  <Button onClick={() => setIsSubmitted(false)}>
+                    For more query
+                  </Button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
