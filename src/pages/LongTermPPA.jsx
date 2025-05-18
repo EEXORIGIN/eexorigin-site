@@ -1,5 +1,9 @@
 import React from "react";
 import { motion } from "framer-motion";
+import testImage from "../assets/long new.png";
+import image1 from "../assets/medium.png";
+import image2 from "../assets/image5.jpeg";
+import image3 from "../assets/RPO.png";
 
 const LongTermPPA = () => {
   return (
@@ -13,6 +17,10 @@ const LongTermPPA = () => {
         >
           Long Term Power Purchase Agreements (PPA)
         </motion.h1>
+
+       
+
+
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -23,6 +31,17 @@ const LongTermPPA = () => {
           savings for energy buyers, ensuring consistent pricing and supply over
           extended periods.
         </motion.p>
+
+        <motion.img
+  src={testImage}
+  alt="Long Term PPA"
+  initial={{ opacity: 0, scale: 0.95 }}
+  animate={{ opacity: 1, scale: 1 }}
+  whileHover={{ scale: 1.05, rotate: 1 }}
+  transition={{ duration: 0.6, delay: 0.1 }}
+  className="mx-auto mt-6 w-[568px] h-[379px] object-cover rounded-2xl border-4 border-gradient-to-r from-green-400 via-blue-500 to-purple-600 shadow-[0_10px_25px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-all duration-500"
+/>
+
       </section>
 
       <section className="px-6 max-w-5xl mx-auto space-y-12 pb-20">
