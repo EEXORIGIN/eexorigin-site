@@ -2,9 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-import testImage from '../assets/test.png';
-import image1 from '../assets/image1.png';
-import image2 from '../assets/image2.png';
+import testImage from "../assets/long.png";
+import image1 from "../assets/image1.png";
+import image2 from "../assets/image2.png";
 
 const Services = () => {
   return (
@@ -18,7 +18,9 @@ const Services = () => {
             transition={{ duration: 0.8 }}
             className="text-center"
           >
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">Our Services</h1>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+              Our Services
+            </h1>
           </motion.div>
         </div>
       </section>
@@ -36,13 +38,15 @@ const Services = () => {
                 transition={{ duration: 0.8, delay: index * 0.2 }}
                 className="bg-white rounded-lg shadow-lg overflow-hidden"
               >
-                <img 
+                <img
                   className="w-full h-48 object-cover"
                   alt={service.title}
-                  src={service.image} 
+                  src={service.image}
                 />
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+                  <h3 className="text-xl font-semibold mb-4">
+                    {service.title}
+                  </h3>
                   <p className="text-gray-600 mb-6">{service.description}</p>
                   <Button variant="outline" className="w-full" asChild>
                     <a href={service.link}>
@@ -63,25 +67,29 @@ const Services = () => {
 const services = [
   {
     title: "LONG TERM PPA",
-    description: "Long-term energy procurement tailored for stability and savings.",
+    description:
+      "Long-term energy procurement tailored for stability and savings.",
     image: testImage,
     link: "/services/ltp", // Link to Long Term PPA page
   },
   {
     title: "MEDIUM TERM PPA",
-    description: "Medium-term power purchase agreements for strategic planning.",
+    description:
+      "Medium-term power purchase agreements for strategic planning.",
     image: image1,
     link: "/services/mtp", // Link to Medium Term PPA page
   },
   {
     title: "SHORT TERM ENERGY TRADING",
-    description: "Flexible, short-term energy trading to meet real-time demands.",
+    description:
+      "Flexible, short-term energy trading to meet real-time demands.",
     image: image2,
     link: "/services/stp", // Link to Short Term PPA page
   },
   {
     title: "RPO OBLIGATIONS",
-    description: "Assistance in meeting Renewable Purchase Obligation compliance.",
+    description:
+      "Assistance in meeting Renewable Purchase Obligation compliance.",
     image: image2,
     link: "/services/rpo", // Link to RPO Obligation page
   },

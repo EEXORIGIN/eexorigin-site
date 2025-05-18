@@ -32,7 +32,7 @@ const Navbar = () => {
               />
 
               <span className="text-2xl font-bold text-primary">
-                ENERGY EXCHANGE ORIGIN
+                ENRGY EXCHANGE ORIGIN
               </span>
             </motion.div>
           </Link>
