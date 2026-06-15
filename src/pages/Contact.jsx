@@ -128,17 +128,25 @@ const Contact = () => {
                       ENERGY EXCHANGE ORIGIN PVT LTD
                     </p>
                     <p className="text-gray-600">
-                      36 Kasturi nagar, Sundharapuram, Coimbatore, Tamilnadu -
-                      641024
+                      703-1, 3rd floor, Oppanakara Street, Coimbatore, Tamilnadu
+                      - 641001
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center">
+                <div
+                  className="flex
+                 items-center"
+                >
                   <Phone className="h-6 w-6 text-primary mr-4" />
                   <div>
                     <h3 className="font-semibold">Phone</h3>
-                    <p className="text-gray-600">+91 88381 97744</p>
+                    <a
+                      href="tel:+918838197744"
+                      className="text-gray-600 hover:text-blue-600 hover:underline"
+                    >
+                      +91 88381 97744
+                    </a>
                   </div>
                 </div>
 
@@ -146,7 +154,14 @@ const Contact = () => {
                   <Mail className="h-6 w-6 text-primary mr-4" />
                   <div>
                     <h3 className="font-semibold">Email</h3>
-                    <p className="text-gray-600">eexorigin@gmail.com</p>
+                    <a
+                      href="https://mail.google.com/mail/?view=cm&fs=1&to=info@eexorigin.com"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-gray-600 hover:text-blue-600 hover:underline"
+                    >
+                      info@eexorigin.com
+                    </a>
                   </div>
                 </div>
               </div>
@@ -234,7 +249,7 @@ const Contact = () => {
                       pattern="\d{10}"
                       onInvalid={(e) =>
                         e.target.setCustomValidity(
-                          "Enter exactly ten digits in phone number"
+                          "Enter exactly ten digits in phone number",
                         )
                       }
                       onInput={(e) => e.target.setCustomValidity("")}
@@ -260,6 +275,8 @@ const Contact = () => {
                         SHORT TERM ENERGY TRADING
                       </option>
                       <option value="service">RPO OBLIGATIONS</option>
+                      <option value="service">CARBON CREDIT ADVISORY</option>
+
                       <option value="others">Other</option>
                     </select>
                   </div>

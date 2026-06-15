@@ -13,6 +13,7 @@ import LongTermPPA from "./pages/LongTermPPA";
 import MediumTermPPA from "./pages/MediumTermPPA";
 import ShortTermPPA from "./pages/ShortTermPPA";
 import RPOObligations from "./pages/RPOObligations";
+import CarbonCreditAdvisory from "./pages/CarbonCreditAdvisory";
 
 function App() {
   return (
@@ -31,6 +32,10 @@ function App() {
               <Route path="/services/mtp" element={<MediumTermPPA />} />
               <Route path="/services/stp" element={<ShortTermPPA />} />
               <Route path="/services/rpo" element={<RPOObligations />} />
+              <Route
+                path="/services/carbon-credit-advisory"
+                element={<CarbonCreditAdvisory />}
+              />
             </Routes>
           </main>
         </AnimatePresence>

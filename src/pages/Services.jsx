@@ -6,6 +6,7 @@ import testImage from "../assets/long new.png";
 import image1 from "../assets/medium.png";
 import image2 from "../assets/image5.jpeg";
 import image3 from "../assets/RPO.png";
+import carbonImage from "../assets/carbon-credit.png";
 
 const Services = () => {
   return (
@@ -88,11 +89,18 @@ const services = [
     link: "/services/stp", // Link to Short Term PPA page
   },
   {
-    title: "RPO OBLIGATIONS",
+    title: "Renewable Purchase Obligations",
     description:
       "Assistance in meeting Renewable Purchase Obligation compliance.",
     image: image3,
     link: "/services/rpo", // Link to RPO Obligation page
+  },
+  {
+    title: "Carbon Credits Advisory",
+    description:
+      "Helping Businesses Achieve Sustainability and Unlock Carbon Value.",
+    image: carbonImage,
+    link: "/services/carbon-credit-advisory", // Link to carbon credit advisory page
   },
 ];
 

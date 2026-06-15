@@ -62,13 +62,31 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
             <ul className="space-y-2 text-gray-400">
-              <li>36 Kasturi nagar, Sundharapuram</li>
-              <li>Coimbatore, Tamilnadu 641024</li>
-              <li>Phone: 8838197744</li>
-              <li>Email: eexorigin@gmail.com</li>
+              <li>703-1, 3rd floor, Oppanakara Street</li>
+              <li>Coimbatore, Tamilnadu 641001</li>
+              <li>
+                Phone:{" "}
+                <a
+                  href="tel:+918838197744"
+                  className="hover:text-white hover:underline"
+                >
+                  +91 88381 97744
+                </a>
+              </li>
+              <li>
+                Email:{" "}
+                <a
+                  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@eexorigin.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-600 hover:text-blue-600 hover:underline"
+                >
+                  info@eexorigin.com
+                </a>
+              </li>
             </ul>
           </div>
-{/*
+          {/*
           <div>
             <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
             <div className="flex space-x-4">
