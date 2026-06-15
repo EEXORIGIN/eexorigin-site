@@ -124,9 +124,7 @@ const Contact = () => {
                   <MapPin className="h-6 w-6 text-primary mr-4" />
                   <div>
                     <h3 className="font-semibold">Address</h3>
-                    <p className="text-gray-600">
-                      ENERGY EXCHANGE ORIGIN PVT LTD
-                    </p>
+                    <p className="text-gray-600">ENERGY EXCHANGE ORIGIN LLP</p>
                     <p className="text-gray-600">
                       703-1, 3rd floor, Oppanakara Street, Coimbatore, Tamilnadu
                       - 641001
@@ -274,8 +272,10 @@ const Contact = () => {
                       <option value="partnership">
                         SHORT TERM ENERGY TRADING
                       </option>
-                      <option value="service">RPO OBLIGATIONS</option>
-                      <option value="service">CARBON CREDIT ADVISORY</option>
+                      <option value="service">
+                        RENEWABLE PURCHASE OBLIGATION
+                      </option>
+                      <option value="service">CARBON CREDICT ADVISORY</option>
 
                       <option value="others">Other</option>
                     </select>

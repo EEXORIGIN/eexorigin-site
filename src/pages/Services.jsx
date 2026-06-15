@@ -89,14 +89,14 @@ const services = [
     link: "/services/stp", // Link to Short Term PPA page
   },
   {
-    title: "Renewable Purchase Obligations",
+    title: "RENEWABLE PURCHASE OBLIGATION",
     description:
       "Assistance in meeting Renewable Purchase Obligation compliance.",
     image: image3,
     link: "/services/rpo", // Link to RPO Obligation page
   },
   {
-    title: "Carbon Credits Advisory",
+    title: "CARBON CREDITS ADVISORY",
     description:
       "Helping Businesses Achieve Sustainability and Unlock Carbon Value.",
     image: carbonImage,
