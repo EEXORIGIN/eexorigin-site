@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin } from "lucide-react";
 import logoIcon from "@/assets/logo-icon.png";
 
 export default function Footer() {
@@ -30,6 +30,9 @@ export default function Footer() {
                 Energy Exchange Origin LLP — navigating India's open energy markets with
                 sustainability-focused advisory and technology solutions for industrial consumers.
               </p>
+              <a href="https://www.linkedin.com/company/energy-exchange-origin/" target="_blank" rel="noopener noreferrer" className="footer-linkedin" aria-label="LinkedIn">
+                <Linkedin size={18} />
+              </a>
             </div>
 
             {/* Sustainability Advisory */}

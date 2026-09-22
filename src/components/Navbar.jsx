@@ -29,7 +29,7 @@ const navItems = [
       },
     ],
     links: [
-      { label: "Dashboard", to: "/dashboard" },
+      { label: "Energy Dashboard", to: "/dashboard" },
       { label: "Price Forecast", to: "/price-forecast" },
     ],
     viewAll: { label: "View All Services", to: "/services" },
