@@ -65,7 +65,7 @@ const LongTermPPA = () => {
         <div className="max-w-6xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             <div className="relative overflow-hidden rounded-2xl reveal-up" style={{ border: "1px solid var(--border-subtle)" }}>
-              <img src={testImage} alt="Long Term PPA" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105" />
+              <img src={testImage} alt="Long Term PPA" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105" loading="lazy" />
               <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(8,12,20,0.4), transparent 40%)" }} />
             </div>
             <div className="reveal-up" style={{ transitionDelay: "0.15s" }}>

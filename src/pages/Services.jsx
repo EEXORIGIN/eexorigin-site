@@ -139,6 +139,7 @@ function ServiceCard({ service, i, isLast, hoveredLink, setHoveredLink }) {
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
           alt={service.title}
           src={service.image}
+          loading="lazy"
         />
         {/* Dark gradient overlay */}
         <div className="absolute inset-0 transition-opacity duration-500" style={{ background: `linear-gradient(to top, rgba(8,12,20,0.9) 0%, rgba(8,12,20,0.3) 50%, transparent 100%)` }} />
