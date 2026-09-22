@@ -73,13 +73,13 @@ export default function Footer() {
               </div>
               <div className="footer-contact-item">
                 <MapPin size={16} className="footer-contact-icon" />
-                <span>Bangalore, Karnataka</span>
+                <span>Bangalore, Karnataka 560100</span>
               </div>
             </div>
           </div>
 
           <div className="footer-bottom">
-            <span>© {new Date().getFullYear()} Energy Exchange Origin LLP. All rights reserved.</span>
+            <span>© 2025 Energy Exchange Origin LLP. All rights reserved.</span>
             <span><Link to="/privacy-policy">Privacy Policy</Link></span>
           </div>
         </div>

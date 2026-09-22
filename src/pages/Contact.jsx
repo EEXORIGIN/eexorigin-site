@@ -145,8 +145,16 @@ const Contact = () => {
                       <br />
                       Coimbatore, Tamil Nadu — 641001
                     </p>
-                    <p className="text-sm text-gray-600 mt-2">
-                      Also serving Bangalore, Karnataka.
+                    <p className="text-sm text-gray-600 mt-3">
+                      <span className="font-semibold text-gray-900">Bangalore Office</span>
+                      <br />
+                      3rd Floor, #No. 17, 2nd Main,
+                      <br />
+                      New Bangalore English School, Shivareddy Layout,
+                      <br />
+                      Naganathapura, Electronic City Post,
+                      <br />
+                      Bangalore South, Bangalore — 560100
                     </p>
                   </div>
                 </div>

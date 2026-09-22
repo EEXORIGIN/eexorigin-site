@@ -3,11 +3,6 @@ import Seo from "@/components/Seo";
 import { Link } from "react-router-dom";
 import { Zap, Monitor, Shield, Clock, Activity, Box, ArrowRight, TrendingUp } from "lucide-react";
 import ExchangeMarquee from "@/components/ExchangeMarquee";
-import imgLongTerm from "@/assets/long-term-ppa.jpg";
-import imgMediumTerm from "@/assets/medium-term-ppa.jpg";
-import imgShortTerm from "@/assets/short-term-trading.jpg";
-import imgRpo from "@/assets/rpo-compliance.jpg";
-import imgCarbon from "@/assets/carbon-credit-advisory.jpg";
 import heroVideo from "@/assets/hero-transmission.mp4";
 import heroPoster from "@/assets/hero-poster.jpg";
 
@@ -52,39 +47,34 @@ const coverage = [
   { icon: Box, tag: "RPO", label: "Obligation Management" },
 ];
 
-const services = [
+const servicesList = [
   {
     title: "Carbon Advisory",
-    desc: "Expert guidance on carbon credit registration, verification, and trading to monetise sustainability efforts.",
-    image: imgCarbon,
+    desc: "Carbon credit registration, verification, and strategic trading guidance.",
     to: "/services/carbon-credit-advisory",
     category: "Sustainability Advisory",
   },
   {
     title: "Renewable Advisory",
-    desc: "Navigate Renewable Purchase Obligation regulations — procurement strategy, REC trading, and compliance reporting.",
-    image: imgRpo,
+    desc: "RPO compliance — procurement strategy, REC trading, and reporting.",
     to: "/services/rpo",
     category: "Sustainability Advisory",
   },
   {
     title: "Long Term PPA",
-    desc: "Secure stable energy pricing through long-term Power Purchase Agreements with generators across India.",
-    image: imgLongTerm,
+    desc: "Stable pricing through 10–25 year Power Purchase Agreements.",
     to: "/services/ltp",
     category: "PPA · Commercial & Industrial",
   },
   {
     title: "Medium Term PPA",
-    desc: "Flexible 1–5 year agreements balancing pricing stability with cost efficiency.",
-    image: imgMediumTerm,
+    desc: "Flexible 1–5 year agreements balancing stability with cost efficiency.",
     to: "/services/mtp",
     category: "PPA · Commercial & Industrial",
   },
   {
     title: "Short Term Trading",
-    desc: "Day-ahead and real-time trading on IEX and PXIL — strategic bidding at competitive prices.",
-    image: imgShortTerm,
+    desc: "Day-ahead and real-time trading on IEX and PXIL.",
     to: "/services/stp",
     category: "PPA · Commercial & Industrial",
   },
@@ -263,21 +253,26 @@ export default function Home() {
             <Link to="/services" className="view-all-btn">View All Services</Link>
           </div>
 
-          <div className="solutions-grid">
-            {services.map((s, i) => (
-              <Link to={s.to} className="solution-card reveal" key={i}>
-                <div className="solution-img">
-                  <img src={s.image} alt={s.title} loading="lazy" />
-                </div>
-                <div className="solution-body">
-                  <p className="solution-category">{s.category}</p>
-                  <h3>{s.title}</h3>
-                  <p>{s.desc}</p>
-                  <span className="solution-link">Learn More →</span>
-                </div>
-              </Link>
+          {/* Compact service list */}
+          <div className="svc-compact-list reveal">
+            {["Sustainability Advisory", "PPA · Commercial & Industrial"].map((cat) => (
+              <div key={cat} className="svc-compact-group">
+                <p className="svc-compact-cat">{cat}</p>
+                {servicesList.filter((s) => s.category === cat).map((s, i) => (
+                  <Link to={s.to} className="svc-compact-item" key={i}>
+                    <div className="svc-compact-info">
+                      <h3>{s.title}</h3>
+                      <p>{s.desc}</p>
+                    </div>
+                    <ArrowRight size={18} className="svc-compact-arrow" />
+                  </Link>
+                ))}
+              </div>
             ))}
+          </div>
 
+          {/* Featured cards */}
+          <div className="solutions-grid" style={{ marginTop: 32 }}>
             {/* Featured dashboard card */}
             <Link to="/dashboard" className="solution-card solution-featured reveal">
               <div className="solution-img" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>

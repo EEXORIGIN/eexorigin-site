@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Seo from "@/components/Seo";
 import { Link, useLocation } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Monitor } from "lucide-react";
 import SparkDivider from "../components/SparkDivider";
 import testImage from "../assets/long-term-ppa.jpg";
 import image1 from "../assets/medium-term-ppa.jpg";
@@ -235,6 +235,63 @@ const Services = () => {
                 setHoveredLink={setHoveredLink}
               />
             ))}
+          </div>
+
+          {/* ── Technology Platform ── */}
+          <div id="technology-platform" className="mb-8 mt-20 reveal-up" style={{ scrollMarginTop: 100 }}>
+            <p className="label-accent">Category</p>
+            <h2 className="h-section mt-2">
+              Technology <span className="serif-accent" style={{ color: "var(--green-electric)" }}>Platform</span>
+            </h2>
+            <p className="mt-2" style={{ color: "var(--text-secondary)", fontSize: "0.9rem", maxWidth: 520 }}>
+              B2B SaaS tools built for industrial energy buyers.
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <Link
+              to="/dashboard"
+              className="svc-tilt-card card-premium overflow-hidden group block no-underline reveal-up"
+              style={{ transformStyle: "preserve-3d" }}
+            >
+              <div className="relative overflow-hidden flex items-center justify-center" style={{ height: 220, background: "linear-gradient(135deg, var(--brand-navy, #062848), var(--brand-blue, #0768A1))" }}>
+                <Monitor size={72} style={{ color: "rgba(255,255,255,0.2)" }} strokeWidth={1.2} />
+                <div className="absolute inset-0 transition-opacity duration-500" style={{ background: "linear-gradient(to top, rgba(8,12,20,0.6) 0%, transparent 100%)" }} />
+              </div>
+              <div className="p-7">
+                <h3 className="text-xl font-bold mb-2 transition-colors" style={{ color: "var(--text-primary)" }}>
+                  Energy Dashboard
+                </h3>
+                <p className="text-[0.85rem] leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
+                  A comprehensive platform with 11 modules — electricity bill analysis, demand forecasting, PPA portfolio management, open access cost comparison, RPO/REC tracking, solar feasibility, DG optimisation, and ESG reporting.
+                </p>
+                <span className="inline-flex items-center text-sm font-semibold gap-2 transition-all group-hover:gap-3" style={{ color: "var(--green-electric)" }}>
+                  Explore Dashboard <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
+
+            <Link
+              to="/price-forecast"
+              className="svc-tilt-card card-premium overflow-hidden group block no-underline reveal-up"
+              style={{ transformStyle: "preserve-3d", transitionDelay: "0.08s" }}
+            >
+              <div className="relative overflow-hidden flex items-center justify-center" style={{ height: 220, background: "linear-gradient(135deg, #062848, #09987F)" }}>
+                <svg width="72" height="72" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                <div className="absolute inset-0 transition-opacity duration-500" style={{ background: "linear-gradient(to top, rgba(8,12,20,0.6) 0%, transparent 100%)" }} />
+                <div className="absolute top-4 right-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider" style={{ background: "rgba(15,169,138,0.2)", color: "var(--green-electric)", border: "1px solid rgba(15,169,138,0.3)" }}>Coming Soon</div>
+              </div>
+              <div className="p-7">
+                <h3 className="text-xl font-bold mb-2 transition-colors" style={{ color: "var(--text-primary)" }}>
+                  Electricity Price Forecast
+                </h3>
+                <p className="text-[0.85rem] leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
+                  A dedicated forecasting platform for India's GDAM, DAM, and RTM electricity markets — giving you a pricing edge for procurement decisions.
+                </p>
+                <span className="inline-flex items-center text-sm font-semibold gap-2 transition-all group-hover:gap-3" style={{ color: "var(--green-electric)" }}>
+                  Learn more <ArrowRight className="w-4 h-4" />
+                </span>
+              </div>
+            </Link>
           </div>
 
         </div>
