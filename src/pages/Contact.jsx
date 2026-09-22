@@ -323,6 +323,12 @@ const Contact = () => {
                             <option value="carbon-advisory">
                               Carbon Credit Advisory
                             </option>
+                            <option value="energy-dashboard">
+                              Energy Dashboard
+                            </option>
+                            <option value="price-forecast">
+                              Electricity Price Forecast
+                            </option>
                             <option value="other">Other</option>
                           </select>
                         </div>
