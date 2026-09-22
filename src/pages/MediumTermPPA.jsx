@@ -1,166 +1,158 @@
-import React from "react";
-import { motion } from "framer-motion";
-import testImage from "../assets/long new.png";
-import image1 from "../assets/medium.png";
-import image2 from "../assets/image5.jpeg";
-import image3 from "../assets/RPO.png";
+import React, { useEffect } from "react";
+import Seo from "@/components/Seo";
+import { Link } from "react-router-dom";
+import { ArrowRight, Settings, Shield, Clock, BookOpen, PieChart } from "lucide-react";
+import SparkDivider from "../components/SparkDivider";
+import image1 from "../assets/medium-term-ppa.jpg";
+
+function useScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal-up");
+    if (!els.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } }),
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
+const offerings = [
+  { icon: Settings, title: "Contract Structuring", desc: "Tailored PPA terms based on your load profile, technology, and risk appetite." },
+  { icon: Shield, title: "Price Hedging", desc: "Protect against market volatility with fixed or indexed pricing models." },
+  { icon: Clock, title: "Flexible Tenure", desc: "Choose contract durations that align with your business cycles or project phases." },
+  { icon: BookOpen, title: "Regulatory Guidance", desc: "Navigate policy and compliance requirements with ease." },
+  { icon: PieChart, title: "Portfolio Management", desc: "Combine PPAs with short-term trading or green certificates for optimised returns." },
+];
+
+const audiences = [
+  { title: "Corporate Buyers", desc: "Data centres, manufacturers, and commercial buildings seeking stable pricing." },
+  { title: "Independent Power Producers", desc: "IPPs looking to secure revenue streams over medium horizons." },
+  { title: "Distribution Utilities", desc: "Utilities balancing procurement portfolios with flexible contracts." },
+  { title: "Green Energy Investors", desc: "Investors seeking structured returns from renewable energy projects." },
+  { title: "ESCOs & Aggregators", desc: "Energy service companies optimising client portfolios." },
+];
 
 const MediumTermPPA = () => {
+  useScrollReveal();
+
   return (
-    <div className="min-h-screen bg-white text-gray-800">
-      <section className="py-20 text-center px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold"
-        >
-          Medium Term Power Purchase Agreements (PPA)
-        </motion.h1>
-
-        
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 text-gray-600 max-w-2xl mx-auto"
-        >
-          Our medium-term PPAs provide the flexibility and reliability required
-          for mid-range strategic energy planning, balancing risk and price
-          security.
-        </motion.p>
-
-        <motion.img
-          src={image1}
-          alt="Long Term PPA"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05, rotate: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mx-auto mt-6 w-full max-w-xl rounded-2xl border-4 border-gradient-to-r from-green-400 via-blue-500 to-purple-600 shadow-[0_10px_25px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-all duration-500"
-        />
+    <div className="min-h-screen">
+      <Seo title="Medium Term PPA" description="Medium-term Power Purchase Agreement solutions for businesses seeking flexible energy procurement." path="/services/mtp" />
+      {/* ═══ HERO ═══ */}
+      <section className="relative overflow-hidden flex flex-col justify-center items-center text-center" style={{ minHeight: "55vh", paddingTop: 80 }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(46,139,192,0.06), transparent 70%)" }} />
+        <div className="relative z-[2] px-6 max-w-3xl mx-auto">
+          <Link to="/services" className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase mb-6 transition-colors reveal-up" style={{ color: "var(--text-muted)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--blue-grid)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>
+            ← Back to Services
+          </Link>
+          <p className="label-accent reveal-up">Our Services</p>
+          <h1 className="h-display mb-5 mt-4 reveal-up" style={{ transitionDelay: "0.1s" }}>
+            Medium Term <span className="serif-accent" style={{ color: "var(--blue-grid)" }}>PPA</span>
+          </h1>
+          <p className="body-lg mx-auto reveal-up" style={{ maxWidth: 560, transitionDelay: "0.2s" }}>
+            Flexible energy contracts tailored for evolving business needs — the perfect balance between long-term stability and short-term agility.
+          </p>
+        </div>
       </section>
 
-      <section className="px-6 max-w-5xl mx-auto space-y-12 pb-20">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-2xl font-semibold mb-2">
-            Flexible energy contracts tailored for evolving business needs.
-          </h2>
-          <p>
-            At <span className="font-bold">EEX ORIGIN</span>, we offer
-            customized Medium-Term Power Purchase Agreements (PPAs) ranging from
-            3 to 10 years, giving energy buyers and producers the perfect
-            balance between long-term stability and short-term flexibility.
+      <SparkDivider />
+
+      {/* ═══ IMAGE + INTRO ═══ */}
+      <section className="py-24 md:py-28 relative z-[2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative overflow-hidden rounded-2xl reveal-up" style={{ border: "1px solid var(--border-subtle)" }}>
+              <img src={image1} alt="Medium Term PPA" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105" />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(8,12,20,0.4), transparent 40%)" }} />
+            </div>
+            <div className="reveal-up" style={{ transitionDelay: "0.15s" }}>
+              <p className="label-accent mb-3">Understanding MTPs</p>
+              <h2 className="h-section mb-5">What is a Medium-Term <span className="serif-accent">PPA?</span></h2>
+              <p className="text-[0.95rem] leading-relaxed mb-4" style={{ color: "var(--text-secondary)" }}>
+                A Medium-Term PPA is a contractual agreement between an energy producer and a buyer to purchase electricity for a fixed or indexed price over a medium-duration period — typically 3 to 10 years.
+              </p>
+              <p className="text-[0.95rem] leading-relaxed" style={{ color: "var(--text-secondary)" }}>
+                These contracts are ideal for businesses looking for stable pricing without being locked into long-term commitments.
+              </p>
+              <div className="mt-8 flex items-center gap-3">
+                <div className="h-[2px] w-12" style={{ background: "var(--blue-grid)" }} />
+                <span className="text-xs font-semibold tracking-wider uppercase" style={{ color: "var(--blue-grid)" }}>3–10 Year Contracts</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SparkDivider />
+
+      {/* ═══ WHAT WE OFFER ═══ */}
+      <section className="py-24 md:py-28 relative z-[2]" style={{ background: "rgba(15,22,35,0.4)" }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-xl mx-auto mb-14">
+            <p className="label-accent reveal-up">What We Offer</p>
+            <h2 className="h-section reveal-up mt-2">Our Medium-Term PPA <span className="serif-accent">Services</span></h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {offerings.map((s, i) => (
+              <div key={s.title} className="card-premium p-7 relative overflow-hidden group reveal-up" style={{ transitionDelay: `${i * 0.08}s` }}>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(46,139,192,0.04),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative z-[1]">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-all group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(46,139,192,0.15)]" style={{ background: "rgba(46,139,192,0.08)", border: "1px solid rgba(46,139,192,0.2)" }}>
+                    <s.icon className="w-5 h-5" style={{ color: "var(--blue-grid)" }} />
+                  </div>
+                  <h3 className="text-base font-bold mb-1.5" style={{ color: "var(--text-primary)" }}>{s.title}</h3>
+                  <p className="text-[0.85rem] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SparkDivider />
+
+      {/* ═══ WHO IS IT FOR ═══ */}
+      <section className="py-24 md:py-28 relative z-[2]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center max-w-xl mx-auto mb-14">
+            <p className="label-accent reveal-up">Ideal For</p>
+            <h2 className="h-section reveal-up mt-2">Who is it <span className="serif-accent">for?</span></h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {audiences.map((a, i) => (
+              <div key={a.title} className="flex gap-4 p-6 rounded-xl border transition-all hover:border-[var(--border-accent)] hover:bg-[var(--bg-elevated)] reveal-up group" style={{ borderColor: "var(--border-subtle)", transitionDelay: `${i * 0.08}s` }}>
+                <div className="w-1.5 rounded-full flex-shrink-0 transition-all group-hover:shadow-[0_0_8px_rgba(46,139,192,0.3)]" style={{ background: "var(--blue-grid)" }} />
+                <div>
+                  <h3 className="font-bold mb-1" style={{ color: "var(--text-primary)" }}>{a.title}</h3>
+                  <p className="text-[0.85rem]" style={{ color: "var(--text-secondary)" }}>{a.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SparkDivider />
+
+      {/* ═══ CTA ═══ */}
+      <section className="py-24 md:py-28 relative z-[2] text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(46,139,192,0.08), transparent)" }} />
+        <div className="cta-glow" style={{ background: "rgba(46,139,192,0.12)", top: -150, left: "15%" }} />
+        <div className="max-w-3xl mx-auto px-6 relative z-[1]">
+          <h2 className="h-section reveal-up">Power Your Next <span className="serif-accent">Move.</span></h2>
+          <p className="reveal-up mt-4 mx-auto" style={{ maxWidth: 420, color: "var(--text-secondary)" }}>
+            Whether you're buying or selling energy, our medium-term PPAs help you lock in value while staying agile.
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-2">
-            What is a Medium-Term PPA?
-          </h3>
-          <p>
-            A Medium-Term PPA is a contractual agreement between an energy
-            producer and a buyer to purchase electricity for a fixed or indexed
-            price over a medium-duration period (typically 3–10 years). These
-            contracts are ideal for businesses looking for stable pricing
-            without being locked into long-term commitments.
-          </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-4">Our Services Include:</h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>
-              <strong>Contract Structuring:</strong> Tailored PPA terms based on
-              your load profile, technology, and risk appetite.
-            </li>
-            <li>
-              <strong>Price Hedging:</strong> Protect against market volatility
-              with fixed or indexed pricing models.
-            </li>
-            <li>
-              <strong>Flexible Tenure:</strong> Choose contract durations that
-              align with your business cycles or project phases.
-            </li>
-            <li>
-              <strong>Regulatory Guidance:</strong> Navigate policy and
-              compliance requirements with ease.
-            </li>
-            <li>
-              <strong>Portfolio Management:</strong> Combine PPAs with
-              short-term trading or green certificates for optimized returns.
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-4">Who is it for?</h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>Corporate Buyers (data centers, manufacturers, commercial buildings)</li>
-            <li>Independent Power Producers (IPPs)</li>
-            <li>Distribution Utilities</li>
-            <li>Green Energy Investors</li>
-            <li>ESCOs and Aggregators</li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-4">Why Choose EEX ORIGIN?</h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>
-              <strong>Market Expertise:</strong> Deep understanding of regional
-              and global energy markets.
-            </li>
-            <li>
-              <strong>End-to-End Support:</strong> From negotiation to
-              settlement, we manage the full PPA lifecycle.
-            </li>
-            <li>
-              <strong>Green Alignment:</strong> Source clean energy and meet
-              your ESG goals through renewable PPAs.
-            </li>
-            <li>
-              <strong>Risk Optimization:</strong> Balance supply-demand with
-              smart contract strategies.
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-2xl font-semibold mt-12 text-center">
-            Let’s Power Your Next Move
-          </h2>
-          <p className="text-center mt-4">
-            Whether you're buying or selling energy, our medium-term PPAs help
-            you lock in value while staying agile in a rapidly changing energy
-            landscape.
-          </p>
-        </motion.div>
+          <div className="flex flex-wrap gap-3.5 justify-center mt-8 reveal-up">
+            <Link to="/contact" className="btn-primary">
+              Get Started <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

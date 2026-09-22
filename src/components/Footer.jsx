@@ -1,122 +1,89 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react";
+import { Link } from "react-router-dom";
+import { Mail, Phone, MapPin } from "lucide-react";
+import logoIcon from "@/assets/logo-icon.png";
 
-const Footer = () => {
-  const socialLinks = [
-    { icon: Facebook, href: "#" },
-    { icon: Twitter, href: "#" },
-    { icon: Instagram, href: "#" },
-    { icon: Linkedin, href: "#" },
-  ];
-
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold">EEXORIGIN</h3>
-            <p className="text-gray-400">
-              Creating amazing experiences for our customers since 2025.
-            </p>
-          </div>
+    <>
+      {/* ━━━ CTA SECTION ━━━ */}
+      <section className="cta-section">
+        <h2>Ready to Build a Sustainable Energy Future?</h2>
+        <p>Get expert advisory on green procurement, compliance, and market strategy — tailored for your business.</p>
+        <div className="cta-btns">
+          <Link to="/contact" className="cta-btn-white">Request a Consultation</Link>
+          <a href="tel:+918838197744" className="cta-btn-outline-w">Call Us</a>
+        </div>
+      </section>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2">
-              <li>
-                <a
-                  href="/"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Home
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/about"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  About
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/services"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Services
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/contact"
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-              </li>
-            </ul>
-          </div>
+      {/* ━━━ FOOTER ━━━ */}
+      <footer className="site-footer">
+        <div className="footer-inner">
+          <div className="footer-grid">
+            {/* Brand */}
+            <div className="footer-brand">
+              <Link to="/" className="nav-logo" style={{ color: "#fff" }}>
+                <img src={logoIcon} alt="EEX Origin" className="nav-logo-mark" />
+                <span>EEX<span className="e">&nbsp;Origin</span></span>
+              </Link>
+              <p>
+                Energy Exchange Origin LLP — navigating India's open energy markets with
+                sustainability-focused advisory and technology solutions for industrial consumers.
+              </p>
+            </div>
 
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Contact Info</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li>703-1, 3rd floor, Oppanakara Street</li>
-              <li>Coimbatore, Tamilnadu 641001</li>
-              <li>
-                Phone:{" "}
-                <a
-                  href="tel:+918838197744"
-                  className="hover:text-white hover:underline"
-                >
-                  +91 88381 97744
-                </a>
-              </li>
-              <li>
-                Email:{" "}
-                <a
-                  href="https://mail.google.com/mail/?view=cm&fs=1&to=info@eexorigin.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-600 hover:text-blue-600 hover:underline"
-                >
-                  info@eexorigin.com
-                </a>
-              </li>
-            </ul>
-          </div>
-          {/*
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Follow Us</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => {
-                const Icon = social.icon;
-                return (
-                  <motion.a
-                    key={index}
-                    href={social.href}
-                    whileHover={{ scale: 1.1 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    <Icon className="h-6 w-6" />
-                  </motion.a>
-                );
-              })}
+            {/* Sustainability Advisory */}
+            <div className="footer-col">
+              <h4>Sustainability Advisory</h4>
+              <ul>
+                <li><Link to="/services/carbon-credit-advisory">Carbon Advisory</Link></li>
+                <li><Link to="/services/rpo">Renewable Advisory</Link></li>
+                <li><Link to="/services/ltp">Long Term PPA</Link></li>
+                <li><Link to="/services/mtp">Medium Term PPA</Link></li>
+                <li><Link to="/services/stp">Short Term Trading</Link></li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div className="footer-col">
+              <h4>Company</h4>
+              <ul>
+                <li><Link to="/about">About Us</Link></li>
+                <li><Link to="/dashboard">Energy Dashboard</Link></li>
+                <li><Link to="/price-forecast">Electricity Price Forecast</Link> <span className="footer-soon-tag">Coming Soon</span></li>
+                <li><Link to="/services">All Services</Link></li>
+                <li><Link to="/contact">Contact</Link></li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div className="footer-col">
+              <h4>Contact</h4>
+              <div className="footer-contact-item">
+                <Mail size={16} className="footer-contact-icon" />
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=info@eexorigin.com" target="_blank" rel="noopener noreferrer">info@eexorigin.com</a>
+              </div>
+              <div className="footer-contact-item">
+                <Phone size={16} className="footer-contact-icon" />
+                <a href="tel:+918838197744">+91 88381 97744</a>
+              </div>
+              <div className="footer-contact-item">
+                <MapPin size={16} className="footer-contact-icon" />
+                <span>Coimbatore, Tamil Nadu 641001</span>
+              </div>
+              <div className="footer-contact-item">
+                <MapPin size={16} className="footer-contact-icon" />
+                <span>Bangalore, Karnataka</span>
+              </div>
             </div>
           </div>
-          */}
-        </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
-          <p>
-            &copy; {new Date().getFullYear()} Your Brand. All rights reserved.
-          </p>
+          <div className="footer-bottom">
+            <span>© {new Date().getFullYear()} Energy Exchange Origin LLP. All rights reserved.</span>
+            <span><Link to="/privacy-policy">Privacy Policy</Link></span>
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </>
   );
-};
-
-export default Footer;
+}

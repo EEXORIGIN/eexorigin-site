@@ -67,3 +67,17 @@ node_modules/
 
 # dataconnect generated files
 .dataconnect
+
+# Build output (never commit build artifacts)
+dist/
+dist2/
+dist3/
+dist4/
+dist5/
+build/
+
+# Vite temp config files
+vite.config.js.timestamp-*.mjs
+
+# OS files
+.DS_Store

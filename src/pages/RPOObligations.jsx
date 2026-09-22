@@ -1,186 +1,167 @@
-import React from "react";
-import { motion } from "framer-motion";
-import testImage from "../assets/long new.png";
-import image1 from "../assets/medium.png";
-import image2 from "../assets/image5.jpeg";
-import image3 from "../assets/RPO.png";
+import React, { useEffect } from "react";
+import Seo from "@/components/Seo";
+import { Link } from "react-router-dom";
+import { ArrowRight, FileCheck, RefreshCw, MapPin, ClipboardCheck, BarChart3 } from "lucide-react";
+import SparkDivider from "../components/SparkDivider";
+import image3 from "../assets/rpo-compliance.jpg";
+
+function useScrollReveal() {
+  useEffect(() => {
+    const els = document.querySelectorAll(".reveal-up");
+    if (!els.length) return;
+    const observer = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); } }),
+      { threshold: 0.12, rootMargin: "0px 0px -40px 0px" }
+    );
+    els.forEach((el) => observer.observe(el));
+    return () => observer.disconnect();
+  }, []);
+}
+
+const rpoTypes = [
+  { label: "Solar RPO", desc: "Mandatory procurement from solar energy sources" },
+  { label: "Non-Solar RPO", desc: "Wind, biomass, and other renewable sources" },
+  { label: "Hydro Purchase Obligation", desc: "Procurement from hydroelectric projects" },
+];
+
+const solutions = [
+  { icon: RefreshCw, title: "Renewable Energy Procurement", desc: "Secure power from solar, wind, or hydro projects via open access, green energy exchanges, or PPAs." },
+  { icon: BarChart3, title: "REC Trading", desc: "Meet RPO targets by procuring Renewable Energy Certificates from recognised exchanges (IEX, PXIL)." },
+  { icon: FileCheck, title: "RPO Strategy & Advisory", desc: "Custom compliance planning based on your load, location, and regulatory requirements." },
+  { icon: ClipboardCheck, title: "End-to-End Compliance", desc: "From registration to documentation and submission to state nodal agencies — we handle it all." },
+  { icon: MapPin, title: "Audit-Ready Reporting", desc: "Maintain accurate records and reports for regulatory inspections and audits." },
+];
+
+const audiences = [
+  { title: "DISCOMs", desc: "Distribution Companies fulfilling state-mandated RPO targets." },
+  { title: "Captive Power Operators", desc: "Captive Power Plant operators with renewable purchase mandates." },
+  { title: "Open Access Consumers", desc: "Consumers procuring power through open access channels." },
+  { title: "Industrial & Commercial Units", desc: "Large units with significant electricity consumption and RPO obligations." },
+];
 
 const RPOObligations = () => {
-  return (
-    <div className="min-h-screen bg-white text-gray-800">
-      <section className="py-20 text-center px-4">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-4xl font-bold"
-        >
-          RPO Obligations
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="mt-6 text-gray-600 max-w-2xl mx-auto"
-        >
-          We support organizations in meeting Renewable Purchase Obligation
-          (RPO) mandates by ensuring procurement from accredited renewable
-          sources and compliance reporting.
-        </motion.p>
+  useScrollReveal();
 
-        <motion.img
-          src={image3}
-          alt="Long Term PPA"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          whileHover={{ scale: 1.05, rotate: 1 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="mx-auto mt-6 w-[568px] h-[379px] object-cover rounded-2xl border-4 border-gradient-to-r from-green-400 via-blue-500 to-purple-600 shadow-[0_10px_25px_rgba(0,0,0,0.3)] hover:shadow-[0_15px_30px_rgba(0,0,0,0.4)] transition-all duration-500"
-        />
+  return (
+    <div className="min-h-screen">
+      <Seo title="Renewable Advisory" description="Renewable Purchase Obligation (RPO) compliance and renewable energy advisory for Indian businesses." path="/services/rpo" />
+      {/* ═══ HERO ═══ */}
+      <section className="relative overflow-hidden flex flex-col justify-center items-center text-center" style={{ minHeight: "55vh", paddingTop: 80 }}>
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 60% at 50% 30%, rgba(15,169,138,0.06), transparent 70%)" }} />
+        <div className="relative z-[2] px-6 max-w-3xl mx-auto">
+          <Link to="/services" className="inline-flex items-center gap-1.5 text-xs font-semibold tracking-wider uppercase mb-6 transition-colors reveal-up" style={{ color: "var(--text-muted)" }}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "var(--green-electric)")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}>
+            ← Back to Services
+          </Link>
+          <p className="label-accent reveal-up">Sustainability Advisory</p>
+          <h1 className="h-display mb-5 mt-4 reveal-up" style={{ transitionDelay: "0.1s" }}>
+            Renewable <span className="serif-accent" style={{ color: "var(--green-electric)" }}>Advisory</span>
+          </h1>
+          <p className="body-lg mx-auto reveal-up" style={{ maxWidth: 560, transitionDelay: "0.2s" }}>
+            Simplifying Renewable Purchase Obligation (RPO) compliance for your business through structured, cost-effective, and fully managed solutions.
+          </p>
+        </div>
       </section>
 
-      <section className="px-6 max-w-5xl mx-auto space-y-12 pb-20">
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-2xl font-semibold mb-2">
-            Simplifying Renewable Purchase Obligation (RPO) compliance for your
-            business
-          </h2>
-          <p>
-            At <strong>EEX ORIGIN</strong>, we help obligated entities—such as
-            distribution companies, open access consumers, and captive power
-            producers—seamlessly meet their Renewable Purchase Obligation (RPO)
-            targets through structured, cost-effective, and compliant solutions.
+      <SparkDivider />
+
+      {/* ═══ IMAGE + INTRO ═══ */}
+      <section className="py-24 md:py-28 relative z-[2]">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div className="relative overflow-hidden rounded-2xl reveal-up" style={{ border: "1px solid var(--border-subtle)" }}>
+              <img src={image3} alt="RPO Obligations" className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105" />
+              <div className="absolute inset-0 pointer-events-none" style={{ background: "linear-gradient(to top, rgba(8,12,20,0.4), transparent 40%)" }} />
+            </div>
+            <div className="reveal-up" style={{ transitionDelay: "0.15s" }}>
+              <p className="label-accent mb-3">Regulatory Compliance</p>
+              <h2 className="h-section mb-5">What is <span className="serif-accent">RPO?</span></h2>
+              <p className="text-[0.95rem] leading-relaxed mb-6" style={{ color: "var(--text-secondary)" }}>
+                Renewable Purchase Obligation is a regulatory mandate requiring certain entities to purchase a specified percentage of their total electricity consumption from renewable energy sources.
+              </p>
+              <div className="space-y-3">
+                {rpoTypes.map((t) => (
+                  <div key={t.label} className="flex items-start gap-3 p-3 rounded-lg" style={{ background: "var(--glow-green)", border: "1px solid var(--border-accent)" }}>
+                    <div className="w-2 h-2 rounded-full mt-2 flex-shrink-0" style={{ background: "var(--green-electric)" }} />
+                    <div>
+                      <p className="font-medium text-sm" style={{ color: "var(--text-primary)" }}>{t.label}</p>
+                      <p className="text-xs" style={{ color: "var(--text-secondary)" }}>{t.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <SparkDivider />
+
+      {/* ═══ SOLUTIONS ═══ */}
+      <section className="py-24 md:py-28 relative z-[2]" style={{ background: "rgba(15,22,35,0.4)" }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center max-w-xl mx-auto mb-14">
+            <p className="label-accent reveal-up">Our Solutions</p>
+            <h2 className="h-section reveal-up mt-2">Renewable Advisory <span className="serif-accent">Services</span></h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {solutions.map((s, i) => (
+              <div key={s.title} className="card-premium p-7 relative overflow-hidden group reveal-up" style={{ transitionDelay: `${i * 0.08}s` }}>
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(15,169,138,0.04),transparent_50%)] opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                <div className="relative z-[1]">
+                  <div className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-all group-hover:scale-110 group-hover:shadow-[0_0_20px_rgba(15,169,138,0.15)]" style={{ background: "var(--glow-green)", border: "1px solid var(--border-accent)" }}>
+                    <s.icon className="w-5 h-5" style={{ color: "var(--green-electric)" }} />
+                  </div>
+                  <h3 className="text-base font-bold mb-1.5" style={{ color: "var(--text-primary)" }}>{s.title}</h3>
+                  <p className="text-[0.85rem] leading-relaxed" style={{ color: "var(--text-secondary)" }}>{s.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SparkDivider />
+
+      {/* ═══ WHO NEEDS THIS ═══ */}
+      <section className="py-24 md:py-28 relative z-[2]">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center max-w-xl mx-auto mb-14">
+            <p className="label-accent reveal-up">Who Needs This</p>
+            <h2 className="h-section reveal-up mt-2">Who needs RPO <span className="serif-accent">services?</span></h2>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {audiences.map((a, i) => (
+              <div key={a.title} className="flex gap-4 p-6 rounded-xl border transition-all hover:border-[var(--border-accent)] hover:bg-[var(--bg-elevated)] reveal-up group" style={{ borderColor: "var(--border-subtle)", transitionDelay: `${i * 0.08}s` }}>
+                <div className="w-1.5 rounded-full flex-shrink-0 transition-all group-hover:shadow-[0_0_8px_rgba(15,169,138,0.3)]" style={{ background: "var(--green-electric)" }} />
+                <div>
+                  <h3 className="font-bold mb-1" style={{ color: "var(--text-primary)" }}>{a.title}</h3>
+                  <p className="text-[0.85rem]" style={{ color: "var(--text-secondary)" }}>{a.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <SparkDivider />
+
+      {/* ═══ CTA ═══ */}
+      <section className="py-24 md:py-28 relative z-[2] text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 100%, rgba(15,169,138,0.08), transparent)" }} />
+        <div className="cta-glow" style={{ background: "rgba(15,169,138,0.12)", top: -150, left: "15%" }} />
+        <div className="max-w-3xl mx-auto px-6 relative z-[1]">
+          <h2 className="h-section reveal-up">Stay Compliant, Stay <span className="serif-accent">Ahead.</span></h2>
+          <p className="reveal-up mt-4 mx-auto" style={{ maxWidth: 420, color: "var(--text-secondary)" }}>
+            Let EEX Origin be your trusted partner in fulfilling RPO obligations with ease, efficiency, and integrity.
           </p>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-2">What is RPO?</h3>
-          <p>
-            Renewable Purchase Obligation (RPO) is a regulatory mandate by
-            government authorities requiring certain entities to purchase a
-            specified percentage of their total electricity consumption from
-            renewable energy sources.
-          </p>
-          <ul className="list-disc pl-6 mt-4 text-gray-700 space-y-1">
-            <li>
-              <strong>Solar RPO</strong>
-            </li>
-            <li>
-              <strong>Non-Solar RPO</strong> (e.g., wind, biomass)
-            </li>
-            <li>
-              <strong>Hydro Purchase Obligation (HPO)</strong>
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-4">
-            Our RPO Compliance Solutions:
-          </h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>
-              <strong>Renewable Energy Procurement:</strong> Secure power from
-              solar, wind, or hydro projects via open access, green energy
-              exchanges, or PPAs.
-            </li>
-            <li>
-              <strong>REC (Renewable Energy Certificate) Trading:</strong> Meet
-              RPO targets by procuring RECs from recognized exchanges (e.g.,
-              IEX, PXIL).
-            </li>
-            <li>
-              <strong>RPO Strategy & Advisory:</strong> Custom compliance
-              planning based on your load, location, and regulatory
-              requirements.
-            </li>
-            <li>
-              <strong>End-to-End Compliance Management:</strong> From
-              registration to documentation and submission to state nodal
-              agencies—we handle it all.
-            </li>
-            <li>
-              <strong>Audit-Ready Reporting:</strong> Maintain accurate records
-              and reports for regulatory inspections and audits.
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-4">
-            Who Needs RPO Services?
-          </h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>
-              <strong>DISCOMs (Distribution Companies)</strong>
-            </li>
-            <li>
-              <strong>Captive Power Plant Operators</strong>
-            </li>
-            <li>
-              <strong>Open Access Consumers</strong>
-            </li>
-            <li>
-              <strong>Large Industrial and Commercial Units</strong>
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h3 className="text-xl font-semibold mb-4">Why Choose EEX ORIGIN?</h3>
-          <ul className="list-disc pl-6 space-y-2 text-gray-700">
-            <li>
-              <strong>Regulatory Expertise:</strong> Stay updated and compliant
-              with evolving RPO norms across states.
-            </li>
-            <li>
-              <strong>Pan-India Network:</strong> Access to renewable energy and
-              RECs across all eligible markets.
-            </li>
-            <li>
-              <strong>Transparent Execution:</strong> Real-time tracking,
-              documentation, and support.
-            </li>
-            <li>
-              <strong>Sustainability Focus:</strong> Align RPO compliance with
-              your green energy and ESG goals.
-            </li>
-          </ul>
-        </motion.div>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-2xl font-semibold mt-12 text-center">
-            Stay Compliant, Stay Ahead
-          </h2>
-          <p className="text-center mt-4">
-            Let <strong>EEX ORIGIN</strong> be your trusted partner in
-            fulfilling RPO obligations with ease, efficiency, and integrity.
-          </p>
-        </motion.div>
+          <div className="flex flex-wrap gap-3.5 justify-center mt-8 reveal-up">
+            <Link to="/contact" className="btn-primary">
+              Talk to an Expert <ArrowRight className="w-4 h-4" />
+            </Link>
+          </div>
+        </div>
       </section>
     </div>
   );

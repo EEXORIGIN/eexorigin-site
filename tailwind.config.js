@@ -16,6 +16,10 @@ module.exports = {
 			},
 		},
 		extend: {
+			fontFamily: {
+				sans: ['DM Sans', 'system-ui', '-apple-system', 'sans-serif'],
+				serif: ['Instrument Serif', 'Georgia', 'Times New Roman', 'serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -50,6 +54,25 @@ module.exports = {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))',
 				},
+				'green-deep': '#0D6B45',
+				'green-mid': '#0F8C5A',
+				'green-light': '#E8F5EE',
+				'green-pale': '#F2FAF6',
+				'navy': '#141B2D',
+				'navy-mid': '#1E2A42',
+				// Dark energy design system
+				'bg-deep': '#080C14',
+				'bg-surface': '#0F1623',
+				'bg-elevated': '#162032',
+				'green-electric': '#00E68A',
+				'green-dim': 'rgba(0,230,138,0.15)',
+				'blue-grid': '#2E8BC0',
+				'amber': '#F5A623',
+				'amber-dim': 'rgba(245,166,35,0.15)',
+				'text-primary': '#F0F2F5',
+				'text-secondary': '#8A94A6',
+				'text-muted': '#4A5568',
+				'border-subtle': 'rgba(255,255,255,0.06)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
