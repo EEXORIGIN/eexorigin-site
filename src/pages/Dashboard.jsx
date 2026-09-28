@@ -89,6 +89,7 @@ const Dashboard = () => {
           style={{ border: "none", display: failed ? "none" : "block" }}
           onLoad={() => setLoaded(true)}
           onError={() => setFailed(true)}
+          allow="fullscreen; downloads"
           allowFullScreen
         />
       </div>
