@@ -15,7 +15,7 @@ function useCanPlayHeroVideo() {
   useEffect(() => {
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = navigator.connection && navigator.connection.saveData;
-    const slowConn = navigator.connection && ["slow-2g", "2g", "3g"].includes(navigator.connection.effectiveType);
+    const slowConn = navigator.connection && ["slow-2g", "2g"].includes(navigator.connection.effectiveType);
     setCanPlay(!reducedMotion && !saveData && !slowConn);
   }, []);
   return canPlay;
