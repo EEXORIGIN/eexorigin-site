@@ -42,6 +42,16 @@ const Contact = () => {
         timestamp: new Date(),
       });
 
+      // Best-effort email notification via the Dashboard backend's mailer
+      // (same one that sends OTP emails). If this fails — e.g. the API is
+      // briefly down — the submission is still safely saved above, so we
+      // don't block or fail the form over it.
+      fetch("https://app.eexorigin.com/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      }).catch((err) => console.error("Contact notification email failed:", err));
+
       setIsSubmitted(true);
       setFormData({
         name: "",
