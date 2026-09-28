@@ -6,15 +6,17 @@ import ExchangeMarquee from "@/components/ExchangeMarquee";
 import heroVideo from "@/assets/hero-transmission.mp4";
 import heroPoster from "@/assets/hero-poster.jpg";
 
-/* ── Skip the hero video on mobile / slow connections / reduced-motion ── */
+/* ── Skip the hero video only on slow connections / reduced-motion.
+   (Previously also skipped it on any screen ≤768px wide, which meant
+   every phone got the static poster instead of the video — that width
+   check is removed so mobile plays the video too.) ── */
 function useCanPlayHeroVideo() {
   const [canPlay, setCanPlay] = useState(false);
   useEffect(() => {
-    const isNarrow = window.matchMedia("(max-width: 768px)").matches;
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const saveData = navigator.connection && navigator.connection.saveData;
     const slowConn = navigator.connection && ["slow-2g", "2g", "3g"].includes(navigator.connection.effectiveType);
-    setCanPlay(!isNarrow && !reducedMotion && !saveData && !slowConn);
+    setCanPlay(!reducedMotion && !saveData && !slowConn);
   }, []);
   return canPlay;
 }
