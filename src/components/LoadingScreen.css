@@ -20,7 +20,7 @@
   width: min(420px, 82vw);
   aspect-ratio: 500 / 580;
 }
-.eexl-stage > div:first-child,
+.eexl-art,
 .eexl-svg {
   width: 100%;
   height: 100%;
@@ -65,32 +65,18 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* spark burst at the strike */
-.eexl-sparks {
+/* canvas effects (particles, flowing current, arcs, sparks) */
+.eexl-canvas {
   position: absolute;
-  left: 52.8%;
-  top: 34.1%;
-  width: 0;
-  height: 0;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 0;
 }
-.eexl-sparks span {
-  position: absolute;
-  width: 4px;
-  height: 4px;
-  margin: -2px;
-  border-radius: 50%;
-  background: var(--c);
-  box-shadow: 0 0 6px var(--c);
-  opacity: 0;
-  animation: eexl-spark 0.7s 0.48s ease-out forwards;
-}
-@keyframes eexl-spark {
-  0%   { opacity: 1; transform: rotate(var(--a)) translateX(0); }
-  100% { opacity: 0; transform: rotate(var(--a)) translateX(var(--d)) translateY(18px); }
-}
+.eexl-canvas--front { z-index: 2; }
+.eexl-art { position: relative; z-index: 1; }
 
 @media (prefers-reduced-motion: reduce) {
   .eexl-screen *, .eexl-screen { animation-duration: 0.01s !important; animation-delay: 0s !important; }
-  .eexl-sparks { display: none; }
 }
