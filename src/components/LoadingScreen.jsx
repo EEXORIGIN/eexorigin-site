@@ -1,7 +1,15 @@
-import React, { useEffect, useState } from "react";
-import logoIcon from "@/assets/logo-icon.png";
+import React, { useEffect, useRef, useState } from "react";
+import eexLogoSvg from "./eexLogoSvg";
+import "./LoadingScreen.css";
 
 const LOADING_SESSION_KEY = "eex-loaded";
+
+// Opening screen: plays the animated EEXORIGIN logo ("Minimal", ~2s),
+// then fades into the site. Shown once per browser session; a click or
+// key press skips it.
+const PLAY_MS = 2000; // logo animation length
+const FADE_MS = 500;  // fade-out into the site
+const SPARKS = 12;
 
 const LoadingScreen = ({ onComplete }) => {
   const alreadyLoaded = (() => {
@@ -12,100 +20,68 @@ const LoadingScreen = ({ onComplete }) => {
     }
   })();
 
-  const [progress, setProgress] = useState(alreadyLoaded ? 100 : 0);
-  const [phase, setPhase] = useState(alreadyLoaded ? "done" : "loading"); // loading → reveal → done
+  const [phase, setPhase] = useState(alreadyLoaded ? "done" : "play"); // play → reveal → done
+  const finishing = useRef(false);
+  const timers = useRef([]);
+
+  const finish = () => {
+    if (finishing.current) return;
+    finishing.current = true;
+    timers.current.forEach(clearTimeout);
+    try {
+      sessionStorage.setItem(LOADING_SESSION_KEY, "1");
+    } catch {
+      // ignore storage errors (private browsing, etc.)
+    }
+    setPhase("reveal");
+    timers.current.push(
+      setTimeout(() => {
+        setPhase("done");
+        onComplete?.();
+      }, FADE_MS)
+    );
+  };
 
   useEffect(() => {
     if (alreadyLoaded) {
       onComplete?.();
       return;
     }
-
-    let frame;
-    let start = null;
-    const duration = 1100; // ms
-
-    const tick = (ts) => {
-      if (!start) start = ts;
-      const elapsed = ts - start;
-      const raw = Math.min(elapsed / duration, 1);
-      // ease-out cubic for smooth deceleration
-      const eased = 1 - Math.pow(1 - raw, 3);
-      setProgress(Math.round(eased * 100));
-
-      if (raw < 1) {
-        frame = requestAnimationFrame(tick);
-      } else {
-        // Start reveal phase
-        setPhase("reveal");
-        try {
-          sessionStorage.setItem(LOADING_SESSION_KEY, "1");
-        } catch {
-          // ignore storage errors (private browsing, etc.)
-        }
-        setTimeout(() => {
-          setPhase("done");
-          onComplete?.();
-        }, 500);
-      }
-    };
-
-    // Small delay before starting the counter
-    const timeout = setTimeout(() => {
-      frame = requestAnimationFrame(tick);
-    }, 150);
-
+    const reduced = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
+    timers.current.push(setTimeout(finish, reduced ? 900 : PLAY_MS));
+    const skip = () => finish();
+    window.addEventListener("keydown", skip);
     return () => {
-      clearTimeout(timeout);
-      cancelAnimationFrame(frame);
+      timers.current.forEach(clearTimeout);
+      window.removeEventListener("keydown", skip);
     };
-  }, [onComplete, alreadyLoaded]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (phase === "done") return null;
 
   return (
     <div
-      className={`loading-screen ${phase === "reveal" ? "loading-screen--reveal" : ""}`}
+      className={`eexl-screen ${phase === "reveal" ? "eexl-screen--reveal" : ""}`}
+      onClick={finish}
+      role="presentation"
     >
-      {/* Ambient glow orbs */}
-      <div className="ls-orb ls-orb--1" />
-      <div className="ls-orb ls-orb--2" />
-      <div className="ls-orb ls-orb--3" />
-
-      {/* Grid pattern overlay */}
-      <div className="ls-grid" />
-
-      {/* Center content */}
-      <div className="ls-content">
-        {/* Logo */}
-        <div className="ls-logo">
-          <div className="ls-logo-icon">
-            <img src={logoIcon} alt="" className="ls-logo-img" />
-          </div>
-          <div className="ls-logo-text">
-            <span className="ls-brand">
-              EEX <span style={{ color: "var(--green-electric)" }}>ORIGIN</span>
-            </span>
-            <span className="ls-sub">Energy Exchange</span>
-          </div>
-        </div>
-
-        {/* Progress bar */}
-        <div className="ls-bar-track">
-          <div className="ls-bar-fill" style={{ width: `${progress}%` }}>
-            <div className="ls-bar-glow" />
-          </div>
-        </div>
-
-        {/* Percentage + label */}
-        <div className="ls-meta">
-          <span className="ls-percent">{progress}%</span>
-          <span className="ls-label">LOADING...</span>
+      <div className="eexl-stage">
+        <div dangerouslySetInnerHTML={{ __html: eexLogoSvg }} />
+        <div className="eexl-sparks" aria-hidden="true">
+          {Array.from({ length: SPARKS }).map((_, i) => (
+            <span
+              key={i}
+              style={{
+                "--a": `${(360 / SPARKS) * i + (i % 2 ? 9 : -6)}deg`,
+                "--d": `${38 + ((i * 37) % 45)}px`,
+                "--c": i % 2 ? "#0FA98A" : "#0768A1",
+              }}
+            />
+          ))}
         </div>
       </div>
-
-      {/* Scan line effect */}
-      <div className="ls-scanline" />
+      <span className="sr-only">EEXORIGIN — Energy Exchange Origin</span>
     </div>
   );
 };

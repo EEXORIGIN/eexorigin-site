@@ -1,0 +1,96 @@
+/* Opening screen — animated EEXORIGIN logo (Minimal, ~2s) */
+.eexl-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ffffff;
+  cursor: pointer;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.eexl-screen--reveal {
+  opacity: 0;
+  transform: scale(1.03);
+  pointer-events: none;
+}
+.eexl-stage {
+  position: relative;
+  width: min(420px, 82vw);
+  aspect-ratio: 500 / 580;
+}
+.eexl-stage > div:first-child,
+.eexl-svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* starting states */
+#eexl-pole-group, #eexl-tower-group { opacity: 1; }
+#eexl-powerlines { opacity: 0.8; }
+
+/* ring draws */
+#eexl-ring-main { animation: eexl-draw 0.5s cubic-bezier(.45,0,.55,1) both; }
+#eexl-ring-bg   { animation: eexl-draw 0.4s cubic-bezier(.45,0,.55,1) both; }
+@keyframes eexl-draw { from { stroke-dashoffset: 974; } to { stroke-dashoffset: 0; } }
+
+/* bolt strike (and the gap it cuts in the ring) */
+#eexl-bolt-main, #eexl-bolt-gap {
+  transform-box: fill-box;
+  transform-origin: center top;
+  animation: eexl-strike 0.1s 0.4s cubic-bezier(.9,0,1,1) both;
+}
+@keyframes eexl-strike {
+  from { opacity: 0; transform: scaleY(0); }
+  to   { opacity: 1; transform: scaleY(1); }
+}
+#eexl-bolt-flash { animation: eexl-flash 0.3s 0.46s both; }
+@keyframes eexl-flash { 0% { opacity: 0; } 15% { opacity: 0.7; } 100% { opacity: 0; } }
+#eexl-bolt-glow-layer { animation: eexl-glow 0.6s 0.46s both; }
+@keyframes eexl-glow { 0% { opacity: 0; } 10% { opacity: 0.25; } 100% { opacity: 0.08; } }
+
+/* insulators + wires light up */
+#eexl-ins-l1, #eexl-ins-l2, #eexl-ins-r1, #eexl-ins-r2 { animation: eexl-to50 0.3s 0.6s both; }
+#eexl-wire-glow-l1, #eexl-wire-glow-r1 { animation: eexl-to30 0.3s 0.6s both; }
+@keyframes eexl-to50 { from { opacity: 0; } to { opacity: 0.5; } }
+@keyframes eexl-to30 { from { opacity: 0; } to { opacity: 0.3; } }
+
+/* wordmark + tagline */
+#eexl-wordmark { animation: eexl-rise 0.4s 0.7s cubic-bezier(.33,1,.68,1) both; }
+#eexl-tagline  { animation: eexl-rise 0.35s 1s cubic-bezier(.33,1,.68,1) both; }
+@keyframes eexl-rise {
+  from { opacity: 0; transform: translateY(15px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* spark burst at the strike */
+.eexl-sparks {
+  position: absolute;
+  left: 52.8%;
+  top: 34.1%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+.eexl-sparks span {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  margin: -2px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 6px var(--c);
+  opacity: 0;
+  animation: eexl-spark 0.7s 0.48s ease-out forwards;
+}
+@keyframes eexl-spark {
+  0%   { opacity: 1; transform: rotate(var(--a)) translateX(0); }
+  100% { opacity: 0; transform: rotate(var(--a)) translateX(var(--d)) translateY(18px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eexl-screen *, .eexl-screen { animation-duration: 0.01s !important; animation-delay: 0s !important; }
+  .eexl-sparks { display: none; }
+}
