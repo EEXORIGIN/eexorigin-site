@@ -40,7 +40,7 @@ const Dashboard = () => {
         )}
 
         <iframe
-          title="EEX Origin Energy Dashboard"
+          title="EEX Origin Energy Origin"
           src={EMBED_URL}
           className="w-full h-full"
           style={{ border: "none", display: failed ? "none" : "block" }}

@@ -136,7 +136,7 @@ const faqs = [
     a: "If your operations reduce emissions, carbon credits let you register, verify, and trade those reductions — turning sustainability investments into an additional revenue stream.",
   },
   {
-    q: "What does the Energy Dashboard include?",
+    q: "What does the Energy Origin include?",
     a: "Modules covering electricity bill analysis, demand & load forecasting, PPA portfolio management, open access cost comparison, RPO/REC tracking, solar rooftop feasibility, DG cost optimisation, and ESG emissions reporting.",
   },
   {
@@ -166,7 +166,7 @@ export default function Home() {
               <a href="#solutions"><span className="sep">●</span> RPO Compliance Advisory</a>
               <a href="#solutions"><span className="sep">●</span> Carbon Credit Trading</a>
               <a href="#solutions"><span className="sep">●</span> Long Term PPA Solutions</a>
-              <a href="#dashboard"><span className="sep">●</span> Energy Dashboard — 11 Modules</a>
+              <a href="#dashboard"><span className="sep">●</span> Energy Origin — 11 Modules</a>
             </React.Fragment>
           ))}
         </div>
@@ -281,20 +281,20 @@ export default function Home() {
                 <Monitor size={64} style={{ color: "rgba(255,255,255,0.25)" }} strokeWidth={1.5} />
               </div>
               <div className="solution-body">
-                <h3>Energy Dashboard</h3>
+                <h3>Energy Origin</h3>
                 <p>A comprehensive B2B SaaS platform with 11 modules — from bill analysis and demand forecasting to PPA management and ESG sustainability reporting. Built for HT industrial consumers.</p>
                 <span className="solution-link" style={{ color: "var(--green-light)" }}>Explore Dashboard →</span>
               </div>
             </Link>
 
-            {/* Coming soon: Electricity Price Forecast platform */}
+            {/* Coming soon: Electricity PowerForecast platform */}
             <Link to="/price-forecast" className="solution-card solution-featured is-coming-soon reveal">
               <div className="solution-img" style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
                 <TrendingUp size={64} style={{ color: "rgba(255,255,255,0.25)" }} strokeWidth={1.5} />
               </div>
               <div className="solution-body">
                 <span className="coming-soon-badge">Coming Soon</span>
-                <h3>Electricity Price Forecast</h3>
+                <h3>Electricity PowerForecast</h3>
                 <p>A dedicated forecasting platform for India&apos;s GDAM, DAM, and RTM electricity markets — currently in development to give you a pricing edge for procurement decisions.</p>
                 <span className="solution-link" style={{ color: "var(--green-light)" }}>Learn more →</span>
               </div>

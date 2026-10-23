@@ -12,7 +12,7 @@ const SEARCH_INDEX = [
   { title: "Carbon Advisory", path: "/services/carbon-credit-advisory", desc: "Footprint assessments and carbon market guidance.", keywords: "carbon credit advisory net-zero sustainability carbon market" },
   { title: "About Us", path: "/about", desc: "Who EEX Origin is, and how we work.", keywords: "about company mission team coimbatore bangalore" },
   { title: "Dashboard", path: "/dashboard", desc: "Energy management dashboard — bills, PPAs, solar, ESG.", keywords: "dashboard energy management app bills solar esg tracking" },
-  { title: "Electricity Price Forecast", path: "/price-forecast", desc: "GDAM, DAM, and RTM forecasting — coming soon.", keywords: "price forecast gdam dam rtm coming soon electricity market" },
+  { title: "Electricity PowerForecast", path: "/price-forecast", desc: "GDAM, DAM, and RTM forecasting — coming soon.", keywords: "price forecast gdam dam rtm coming soon electricity market" },
   { title: "Contact", path: "/contact", desc: "Get in touch with our energy consultants.", keywords: "contact enquiry get in touch phone email talk" },
   { title: "Privacy Policy", path: "/privacy-policy", desc: "How we handle the data you share with us.", keywords: "privacy policy data protection dpdp" },
 ];

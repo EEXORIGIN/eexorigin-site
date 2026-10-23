@@ -52,8 +52,8 @@ export default function Footer() {
               <h4>Company</h4>
               <ul>
                 <li><Link to="/about">About Us</Link></li>
-                <li><Link to="/dashboard">Energy Dashboard</Link></li>
-                <li><Link to="/price-forecast">Electricity Price Forecast</Link> <span className="footer-soon-tag">Coming Soon</span></li>
+                <li><Link to="/dashboard">Energy Origin</Link></li>
+                <li><Link to="/price-forecast">Electricity PowerForecast</Link> <span className="footer-soon-tag">Coming Soon</span></li>
                 <li><Link to="/services">All Services</Link></li>
                 <li><Link to="/contact">Contact</Link></li>
               </ul>

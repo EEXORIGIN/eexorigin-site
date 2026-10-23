@@ -342,10 +342,10 @@ const Contact = () => {
                               Carbon Credit Advisory
                             </option>
                             <option value="energy-dashboard">
-                              Energy Dashboard
+                              Energy Origin
                             </option>
                             <option value="price-forecast">
-                              Electricity Price Forecast
+                              Electricity PowerForecast
                             </option>
                             <option value="other">Other</option>
                           </select>

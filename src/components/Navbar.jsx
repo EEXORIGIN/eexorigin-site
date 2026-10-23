@@ -29,8 +29,8 @@ const navItems = [
       },
     ],
     links: [
-      { label: "Energy Dashboard", to: "/dashboard" },
-      { label: "Price Forecast", to: "/price-forecast" },
+      { label: "Energy Origin", to: "/dashboard" },
+      { label: "PowerForecast", to: "/price-forecast" },
     ],
     viewAll: { label: "View All Services", to: "/services" },
   },

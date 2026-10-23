@@ -13,7 +13,7 @@ const features = [
 const PriceForecast = () => {
   return (
     <div className="min-h-screen flex flex-col" style={{ paddingTop: 64 }}>
-      <Seo title="Electricity Price Forecast" description="A dedicated electricity price forecasting platform for India\u2019s GDAM, DAM, and RTM markets \u2014 currently in development." path="/price-forecast" />
+      <Seo title="Electricity PowerForecast" description="A dedicated electricity price forecasting platform for India\u2019s GDAM, DAM, and RTM markets \u2014 currently in development." path="/price-forecast" />
       <div
         className="flex items-center justify-between px-4 sm:px-6 py-3"
         style={{ borderBottom: "1px solid var(--border-subtle)", background: "rgba(15,22,35,0.6)" }}
@@ -41,7 +41,7 @@ const PriceForecast = () => {
           <div className="flex items-center justify-center mb-6" style={{ marginTop: 8 }}>
             <TrendingUp size={56} style={{ color: "var(--green-electric)" }} strokeWidth={1.5} />
           </div>
-          <h1 className="h-display mb-4">Electricity Price Forecast</h1>
+          <h1 className="h-display mb-4">Electricity PowerForecast</h1>
           <p className="body-lg mb-10 mx-auto" style={{ color: "var(--text-secondary)", maxWidth: 480 }}>
             A dedicated forecasting platform for India&apos;s electricity markets, currently in development.
             It&apos;s built to give you data-driven visibility into where prices are headed, so procurement

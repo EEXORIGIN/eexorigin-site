@@ -259,7 +259,7 @@ const Services = () => {
               </div>
               <div className="p-7">
                 <h3 className="text-xl font-bold mb-2 transition-colors" style={{ color: "var(--text-primary)" }}>
-                  Energy Dashboard
+                  Energy Origin
                 </h3>
                 <p className="text-[0.85rem] leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
                   A comprehensive platform with 11 modules — electricity bill analysis, demand forecasting, PPA portfolio management, open access cost comparison, RPO/REC tracking, solar feasibility, DG optimisation, and ESG reporting.
@@ -282,7 +282,7 @@ const Services = () => {
               </div>
               <div className="p-7">
                 <h3 className="text-xl font-bold mb-2 transition-colors" style={{ color: "var(--text-primary)" }}>
-                  Electricity Price Forecast
+                  Electricity PowerForecast
                 </h3>
                 <p className="text-[0.85rem] leading-relaxed mb-5" style={{ color: "var(--text-secondary)" }}>
                   A dedicated forecasting platform for India's GDAM, DAM, and RTM electricity markets — giving you a pricing edge for procurement decisions.
