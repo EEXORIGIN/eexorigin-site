@@ -79,7 +79,7 @@ export default function Navbar() {
         <div className="nav-inner">
           <Link to="/" className="nav-logo">
             <img src={logoIcon} alt="EEX Origin" className="nav-logo-mark" />
-            <span>EEX<span className="e">&nbsp;Origin</span></span>
+            <div className="nav-logo-text"><span>EEX<span className="e">&nbsp;Origin</span></span><span className="nav-logo-fullname">Energy Exchange Origin</span></div>
           </Link>
 
           <ul className="nav-links">
@@ -162,7 +162,7 @@ export default function Navbar() {
           <div className="nav-mobile-header">
             <Link to="/" className="nav-logo" onClick={() => setMobileOpen(false)}>
               <img src={logoIcon} alt="EEX Origin" className="nav-logo-mark" />
-              <span>EEX<span className="e">&nbsp;Origin</span></span>
+              <div className="nav-logo-text"><span>EEX<span className="e">&nbsp;Origin</span></span><span className="nav-logo-fullname">Energy Exchange Origin</span></div>
             </Link>
             <button
               className="nav-mobile-close"

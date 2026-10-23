@@ -287,6 +287,19 @@
   display: block;
 }
 .nav-logo .e { color: var(--green-light); }
+.nav-logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+.nav-logo-fullname {
+  font-size: 9px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #5a6072;
+  font-weight: 500;
+  margin-top: 1px;
+}
 .nav-links {
   display: flex;
   align-items: center;
